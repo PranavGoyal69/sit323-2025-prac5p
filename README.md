@@ -128,21 +128,5 @@ The microservice has been designed to handle the following errors:
 - **Invalid input**: If non-numeric values are passed for `num1` or `num2`, the server responds with an error message indicating invalid input.
 - **Division by zero**: If `num2` is `0` during a division operation, the server responds with an error message indicating that division by zero is not allowed.
 
-### Testing the Service
 
-You can test the API using tools like [Postman](https://www.postman.com/) or directly in the browser by providing the necessary parameters in the URL.
-
-### Running Tests (Optional)
-
-If you have tests for the service, you can run them using a test framework like Mocha or Jest. For example:
-
-1. Install Mocha (if not already installed):
-   ```bash
-   npm install --save-dev mocha
-   ```
-
-2. Run tests:
-   ```bash
-   npm test
-   ```
 
