@@ -1,105 +1,148 @@
-Simple Calculator Microservice
 
-Overview
+# Calculator Microservice
 
-This microservice provides basic calculator functionality via a REST API. It supports addition, subtraction, multiplication, and division operations.
+## Overview
 
-Technologies Used
+This project implements a basic calculator microservice using Node.js and Express. The microservice exposes several API endpoints that allow users to perform basic arithmetic operations (addition, subtraction, multiplication, and division) along with error handling for invalid inputs and division by zero.
 
-Node.js
+### Features
+- Basic arithmetic operations (addition, subtraction, multiplication, division)
+- Error handling for invalid inputs and division by zero
+- API responses in JSON format
 
-Express.js
+## Getting Started
 
-Git & GitHub
+Follow the steps below to set up and run the project locally.
 
-Features
+### Prerequisites
 
-Accepts two numerical input parameters (num1 and num2).
+- [Node.js](https://nodejs.org/en/download/) installed on your machine
+- A text editor (such as [Visual Studio Code](https://code.visualstudio.com/)) for editing files
 
-Performs basic arithmetic operations:
+### Installing
 
-Addition (/add)
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/sit323-2025-prac4c.git
+   ```
 
-Subtraction (/subtract)
+2. Navigate into the project folder:
+   ```bash
+   cd sit323-2025-prac4c
+   ```
 
-Multiplication (/multiply)
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
 
-Division (/divide)
+### Running the Server
 
-Error handling for invalid inputs.
+1. To start the server, run the following command:
+   ```bash
+   node server.js
+   ```
 
-Installation & Setup
+2. The server will start and be available at `http://localhost:3000`.
 
-Prerequisites
+### Using the API
 
-Ensure you have the following installed on your system:
+The API exposes the following endpoints:
 
-Node.js
+#### 1. Addition
+- **Endpoint**: `/add`
+- **Method**: `GET`
+- **Parameters**: `num1`, `num2` (both should be numbers)
+- **Example**:
+  ```bash
+  http://localhost:3000/add?num1=5&num2=3
+  ```
+- **Response**:
+  ```json
+  { "result": 8 }
+  ```
 
-Git
+#### 2. Subtraction
+- **Endpoint**: `/subtract`
+- **Method**: `GET`
+- **Parameters**: `num1`, `num2` (both should be numbers)
+- **Example**:
+  ```bash
+  http://localhost:3000/subtract?num1=5&num2=3
+  ```
+- **Response**:
+  ```json
+  { "result": 2 }
+  ```
 
-Clone the Repository
+#### 3. Multiplication
+- **Endpoint**: `/multiply`
+- **Method**: `GET`
+- **Parameters**: `num1`, `num2` (both should be numbers)
+- **Example**:
+  ```bash
+  http://localhost:3000/multiply?num1=5&num2=3
+  ```
+- **Response**:
+  ```json
+  { "result": 15 }
+  ```
 
-git clone https://github.com/PranavGoyal69/sit323-2025-prac4p.git
-cd sit323-2025-prac4p
+#### 4. Division
+- **Endpoint**: `/divide`
+- **Method**: `GET`
+- **Parameters**: `num1`, `num2` (both should be numbers)
+- **Example**:
+  ```bash
+  http://localhost:3000/divide?num1=6&num2=3
+  ```
+- **Response**:
+  ```json
+  { "result": 2 }
+  ```
 
-Install Dependencies
+- **Error Handling**:
+  - If invalid parameters are passed (non-numeric values), the response will return a `400` error with a message:
+    ```json
+    { "error": "Invalid input parameters" }
+    ```
+  - If attempting to divide by zero, the response will return a `400` error with the message:
+    ```json
+    { "error": "Cannot divide by zero" }
+    ```
 
-npm install
+### Example Client Usage
 
-Run the Microservice
+In the `index.js` file, the client communicates with the server by sending requests to the API. You can modify the `operation` argument and the numbers to test the calculator operations.
 
-node server.js
+```javascript
+performOperation('add', 5, 3);  // Change the operation to 'subtract', 'multiply', or 'divide' as needed
+```
 
-API Endpoints
+This script will fetch the result from the API and log the output to the console.
 
-Method
+### Error Handling
 
-Endpoint
+The microservice has been designed to handle the following errors:
 
-Parameters
+- **Invalid input**: If non-numeric values are passed for `num1` or `num2`, the server responds with an error message indicating invalid input.
+- **Division by zero**: If `num2` is `0` during a division operation, the server responds with an error message indicating that division by zero is not allowed.
 
-Description
+### Testing the Service
 
-GET
+You can test the API using tools like [Postman](https://www.postman.com/) or directly in the browser by providing the necessary parameters in the URL.
 
-/add
+### Running Tests (Optional)
 
-num1, num2
+If you have tests for the service, you can run them using a test framework like Mocha or Jest. For example:
 
-Returns num1 + num2
+1. Install Mocha (if not already installed):
+   ```bash
+   npm install --save-dev mocha
+   ```
 
-GET
+2. Run tests:
+   ```bash
+   npm test
+   ```
 
-/subtract
-
-num1, num2
-
-Returns num1 - num2
-
-GET
-
-/multiply
-
-num1, num2
-
-Returns num1 * num2
-
-GET
-
-/divide
-
-num1, num2
-
-Returns num1 / num2 (Handles division by zero)
-
-Example Usage
-
-GET http://localhost:3000/add?num1=10&num2=5
-Response: { "result": 15 }
-
-Error Handling
-
-If num1 or num2 is missing or not a number, the API returns a 400 error.
-
-If attempting division by zero, the API returns a relevant error message.
