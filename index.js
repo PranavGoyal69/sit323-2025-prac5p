@@ -1,5 +1,5 @@
 // Using the fetch API to communicate with the calculator microservice
-const baseURL = "http://localhost:3001"; // Adjust to your server's URL
+const baseURL = "http://localhost:3000"; // Adjust to your server's URL
 
 // Function to fetch result from the server for the 'add' operation
 async function addNumbers(num1, num2) {

@@ -9,5 +9,16 @@
   },
   "dependencies": {
     "express": "^4.21.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PranavGoyal69/sit323-2025-prac4c.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PranavGoyal69/sit323-2025-prac4c/issues"
+  },
+  "homepage": "https://github.com/PranavGoyal69/sit323-2025-prac4c#readme"
 }
